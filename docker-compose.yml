@@ -1,18 +1,39 @@
-  version: '3.8'
+services:
+  chrome-for-test:
+    image: browserless/chrome:latest
+    container_name: qa-chrome
+    ports:
+      - "3000:3000"
+    environment:
+      - DEFAULT_LAUNCH_ARGS= --no-sandbox,--disable-dev-shm-usage,--disable-gpu
+      - ENABLE_VIDEO=true
+      - ENABLE_SCREENSHOT=true
+      - LOG_LEVEL=INFO
+      - MAX_COUNTER_SESSIONS=5
+      - CONNECTION_TIMEOUT=30000
+    volumes:
+      - ./result/videos:tmp/videos
+      - ./result/screenshots:tmp/screenshots
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost:3000/json/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+    restart: unless-stopped
 
-  services:
-    playwright-chrome:
-      image: browserless/chrome:latest
-      container_name: playwright-chrome
-      ports:
-        - "3000:3000"
-      environment:
-        - DEFAULT_LAUNCH_ARGS=--no-sandbox,--disable-dev-shm-usage
+  test-website:
+    image: nginx:alpine
+    container_name: qa_website
+    ports:
+      - "8080:80"
+    volumes:
+      - ./website:/usr/share/nginx/html
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+    restart: unless-stopped
 
-    test-website:
-      image: nginx:alpine
-      container_name: test-website
-      ports:
-        - "8080:80"
-      volumes:
-        - ./website:/usr/share/nginx/html

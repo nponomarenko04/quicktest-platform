@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test Application</title>
+    <title>QA Test Site</title>
+    <style>
+        body { font-family: Arial; padding: 40px; }
+        .btn { background: blue; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        .btn:hover { background: darkblue; }
+    </style>
 </head>
 <body>
-    <h1>QA Test Platform</h1>
-    <button id="test-btn">Click me</button>
+    <h1>🚀 Добро пожаловать в тестовую лабораторию!</h1>
+    <p>Это демо-сайт для обучения автотестированию.</p>
+
+    <div id="test-section">
+        <button id="test-btn" class="btn">Нажми меня</button>
+        <input id="text-input" type="text" placeholder="Введи текст">
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
     <script>
         document.getElementById('test-btn').onclick = function() {
-            this.textContent = 'Clicked!';
-        }
+            const input = document.getElementById('text-input').value;
+            const result = document.getElementById('result');
+
+            if (input) {
+                result.innerHTML = `<span style="color: green;">Вы ввели: ${input}</span>`;
+            } else {
+                result.innerHTML = '<span style="color: red;">Введите текст сначала!</span>';
+            }
+        };
     </script>
 </body>
 </html>
