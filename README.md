@@ -5,7 +5,6 @@
 [![Docker](https://img.shields.io/badge/Docker-✓-blue?logo=docker)](https://docker.com)
 [![Playwright](https://img.shields.io/badge/Playwright-✓-green?logo=playwright)](https://playwright.dev)
 [![Python](https://img.shields.io/badge/Python-3.10+-yellow?logo=python)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 ## 🎯 Что это такое?
 
