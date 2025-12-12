@@ -1,9 +1,13 @@
 QuickTest Platform
 
 A local platform for running Playwright autotests in isolated Docker containers.
+
 [![Docker](https://img.shields.io/badge/Docker-✓-blue?logo=docker)](https://docker.com)
+
 [![Playwright](https://img.shields.io/badge/Playwright-✓-green?logo=playwright)](https://playwright.dev)
+
 [![Python](https://img.shields.io/badge/Python-3.10+-yellow?logo=python)](https://python.org)
+
 Overview
 
 QuickTest Platform is a self-contained testing laboratory designed to execute automated browser tests without requiring local browser installations. The entire environment runs within Docker containers, ensuring consistency and isolation across all test runs.
