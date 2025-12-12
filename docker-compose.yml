@@ -1,5 +1,5 @@
 services:
-  chrome-for-test:
+  chrome-for-tests:
     image: browserless/chrome:latest
     container_name: qa-chrome
     ports:
@@ -12,8 +12,8 @@ services:
       - MAX_COUNTER_SESSIONS=5
       - CONNECTION_TIMEOUT=30000
     volumes:
-      - ./result/videos:tmp/videos
-      - ./result/screenshots:tmp/screenshots
+      - ./result/videos:/tmp/videos
+      - ./result/screenshots:/tmp/screenshots
     healthcheck:
       test: ["CMD","curl","-f","http://localhost:3000/json/version"]
       interval: 30s
@@ -37,3 +37,22 @@ services:
       start_period: 45s
     restart: unless-stopped
 
+  test-runner:
+    image: mcr.microsoft.com/playwright/python:latest
+    container_name: qa-test-runner
+    depends_on:
+      chrome-for-tests:
+        condition: service_healthy
+      test-website:
+        condition: service_healthy
+    environment:
+      - BASE_URL=http://test-website:80
+      - BROWSER_WS_URL=ws://chrome-for-tests:3000
+      - DEBUG=false
+    volumes:
+      - ./tests:/app/tests
+      - ./results:/app/results
+      - ./website:/app/website
+    working_dir: /app
+    command: [ "tail", "-f", "/dev/null" ]
+    restart: unless-stopped
