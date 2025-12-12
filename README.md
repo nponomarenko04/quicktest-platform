@@ -1,25 +1,30 @@
-# 🚀 QuickTest Platform
+QuickTest Platform
 
-**Локальная платформа для запуска автотестов на Playwright в Docker**
+A local platform for running Playwright autotests in isolated Docker containers.
 
-[![Docker](https://img.shields.io/badge/Docker-✓-blue?logo=docker)](https://docker.com)
-[![Playwright](https://img.shields.io/badge/Playwright-✓-green?logo=playwright)](https://playwright.dev)
-[![Python](https://img.shields.io/badge/Python-3.10+-yellow?logo=python)](https://python.org)
+https://img.shields.io/badge/Docker-Required-2496ED?logo=docker&logoColor=white
+https://img.shields.io/badge/Playwright-Test%2520Framework-2EAD33?logo=playwright&logoColor=white
+https://img.shields.io/badge/Python-3.10%252B-3776AB?logo=python&logoColor=white
+https://img.shields.io/badge/License-MIT-blue.svg
+Overview
 
-## 🎯 Что это такое?
+QuickTest Platform is a self-contained testing laboratory designed to execute automated browser tests without requiring local browser installations. The entire environment runs within Docker containers, ensuring consistency and isolation across all test runs.
+Key Features
 
-**QuickTest Platform** — это самодостаточная тестовая лаборатория, которая позволяет запускать автотесты на разных браузерах без их установки на вашу машину. Всё работает в Docker контейнерах.
+    Cross-browser Testing – Execute tests on Chrome and Firefox within Docker containers
 
-### 🌟 Ключевые возможности
-- ✅ **Запуск тестов на разных браузерах** (Chrome, Firefox) в Docker
-- ✅ **Автоматическая запись видео** падающих тестов
-- ✅ **Профессиональные отчеты** в Allure с историей запусков
-- ✅ **Mock-сервер для API** тестирования
-- ✅ **Параллельный запуск** тестов
-- ✅ **Готовность к CI/CD** (GitHub Actions, GitLab CI)
+    Failure Diagnostics – Automatic video recording for failed test cases
 
-## 📦 Быстрый старт
+    Comprehensive Reporting – Allure reports with full execution history and trends
 
-### Предварительные требования
-- **Docker** и **Docker Compose** (инструкция по установке ниже)
-- **Git** для клонирования репозитория
+    API Testing Support – Integrated mock server for backend simulation
+
+    Parallel Execution – Concurrent test runs for reduced execution time
+
+    CI/CD Integration – Ready for GitHub Actions, GitLab CI, and other CI/CD pipelines
+
+Prerequisites
+
+    Docker & Docker Compose – Installation guide
+
+    Git – For repository cloning and version control
